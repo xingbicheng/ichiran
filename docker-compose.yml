@@ -16,5 +16,11 @@ services:
 
   main:
     build:
-      dockerfile: ./docker/sbcl-dockerfile
       context: .
+      dockerfile: ./docker/sbcl-dockerfile
+    ports:
+      - "5060:5060"
+    environment:
+      - NODE_ENV=production
+    volumes:
+      - .:/app
